@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #image-container {
+            border: 2px solid #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #zoomed-image {
+            width: 100%;
+            height: auto;
+            transform-origin: center;
+            transition: transform 0.2s;
+        }
+
+        #zoomed-image.zoomed {
+            transform: scale(1); /* You can adjust the scale factor for zoom level */
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img id="zoomed-image" src="image.png" alt="Zoomable Image">
+    </div>
+
+    <script>
+        const imageContainer = document.getElementById('image-container');
+        const zoomedImage = document.getElementById('zoomed-image');
+
+        let isZoomed = false;
+
+        imageContainer.addEventListener('click', () => {
+            isZoomed = !isZoomed;
+            zoomedImage.classList.toggle('zoomed', isZoomed);
+        });
+    </script>
+</body>
+</html>
